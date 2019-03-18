@@ -1,6 +1,13 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
+import { reset } from 'styled-reset';
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  /* other styles */
+`;
+
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -30,10 +37,12 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang="es">
-        <Head>
-          <link crossOrigin="anonymous" media="all" rel="stylesheet" href="/static/css/style.css" />
+        <GlobalStyle />
+        <Head>          
           <meta name="viewport" content="width=device-width" />
+          <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
           {this.props.styleTags}
+          <link crossOrigin="anonymous" media="all" rel="stylesheet" href="/static/css/style.css" />
         </Head>
         <body>
           <Main />
