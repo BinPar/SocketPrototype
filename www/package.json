@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -e mjs --experimental-modules server.mjs",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production PORT=80 node --experimental-modules server.mjs"
   },
   "author": "",
   "license": "ISC",
