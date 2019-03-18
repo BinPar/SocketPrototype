@@ -13,6 +13,10 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     logger.info(`Disconnected: ${colors.blue.bold(socket.client.id)}`);
   });
+  socket.on('listPools', () => {
+    logger.info('List requested');
+    socket.emit('pools', ['Certamen 2019', 'Otro', 'Ejemplo']);
+  });
 });
 
 server

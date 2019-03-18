@@ -5,6 +5,7 @@
   },
   "extends": "airbnb",
   "rules": {
+    "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
