@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import io from 'socket.io-client';
+import client from '../client';
 import { Link } from '../routes';
 import getCookie from '../util/getCookie';
-
-const socket = io('http://localhost:3003');
-socket.connect();
-global.socket = socket;
 
 const Home = ({ token }) => (
   <React.Fragment>
