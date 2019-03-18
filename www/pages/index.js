@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 
 const socket = io('http://localhost:3003');
 socket.connect();
+global.socket = socket;
 
 const Home = () => <h1>Hola mundo</h1>;
 

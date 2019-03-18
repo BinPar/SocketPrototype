@@ -5,7 +5,6 @@ import { reset } from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
-  /* other styles */
 `;
 
 
