@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import client from '../client';
+import getInitialProps from '../client/getInitialProps';
 import { Link } from '../routes';
-import getCookie from '../util/getCookie';
 
 const Home = ({ token }) => (
   <React.Fragment>
@@ -25,9 +24,6 @@ Home.propTypes = {
   token: PropTypes.string,
 };
 
-Home.getInitialProps = ({ req }) => {
-  const token = getCookie(req, 'github-token');
-  return { token };
-};
+Home.getInitialProps = ({ req }) => getInitialProps(req, async (socket) => {});
 
 export default Home;

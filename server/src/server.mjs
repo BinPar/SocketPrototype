@@ -7,11 +7,23 @@ import logger from './util/logger.mjs';
 const server = http.createServer();
 const io = socketIO(server);
 const { port } = settings;
+let totalConnections = 0;
 
 io.on('connection', (socket) => {
-  logger.info(`New connection from: ${colors.blue.bold(socket.client.id)}`);
+  totalConnections += 1;
+  logger.info(
+    `${colors.green.bold(totalConnections)} New connection from: ${colors.blue.bold(
+      socket.client.id,
+    )}`,
+  );
   socket.on('disconnect', () => {
-    logger.info(`Disconnected: ${colors.blue.bold(socket.client.id)}`);
+    totalConnections -= 1;
+    logger.info(
+      `${colors.green.red(totalConnections)} Disconnected: ${colors.blue.bold(socket.client.id)}`,
+    );
+  });
+  socket.on('quit', () => {
+    socket.disconnect(true);
   });
   socket.on('listPools', () => {
     logger.info('List requested');
