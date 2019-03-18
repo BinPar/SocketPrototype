@@ -7,4 +7,3 @@ socket.connect();
 const Home = () => <h1>Hola mundo</h1>;
 
 export default Home;
-// with ES6 import
