@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e mjs --experimental-modules server.mjs",
+    "dev": "nodemon --watch ./server.mjs --watch ./routes/index.js --experimental-modules server.mjs",
     "build": "next build",
     "start": "NODE_ENV=production PORT=80 node --experimental-modules server.mjs"
   },
